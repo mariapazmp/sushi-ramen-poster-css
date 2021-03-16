@@ -10,7 +10,7 @@
   display: grid;
   height: 900px;
   
-  grid-template-columns: 50px 1fr 1fr 1fr;
+  grid-template-columns: 50px 1fr 0.5fr 0.5fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 100px;
 }
 
@@ -55,6 +55,7 @@
 .noren {
   background-size: 20px 20px;
   background-image: radial-gradient(var(--primary) 30%, transparent 20%);
+  grid-column: 3 / 5;
 }
 
 .plates {
@@ -68,4 +69,24 @@
     width: 140px; 
     border-radius: 0 0 150px 150px; 
     background: var(--primary);
+}
+
+.restaurantShade {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 10px,
+    var(--primary) 10px,
+    var(--primary) 20px
+  )
+}
+
+.openingSign {
+  background: var(--secondary);
+  color: var(--background);
+  font-size: 3.5rem;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  text-align: center;
+  letter-spacing: 1rem;
 }
