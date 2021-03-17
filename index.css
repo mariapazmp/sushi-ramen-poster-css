@@ -1,7 +1,11 @@
 :root {
   --background: #efece6;
   --primary: #293c83;
-  --secondary: #e39167;
+  --secondary: #e8996f;
+}
+
+body {
+  font-family: 'RocknRoll One', sans-serif;
 }
 
 #sushiPoster {
@@ -10,8 +14,11 @@
   display: grid;
   height: 900px;
   
-  grid-template-columns: 50px 1fr 0.5fr 0.5fr 1fr;
+  grid-template-columns: 50px 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 100px;
+      max-width: 575px;
+    padding: 30px;
+    box-shadow: 3px 3px 5px #ccc;
 }
 
 .chopsticks {
@@ -46,10 +53,19 @@
 }
 
 .ramen {
-  background: var(--primary);
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  width: 185px;
+  height: 185px;
+  border: 20px var(--primary) solid;
+  
+  transform: rotate(45deg);
+  background-color: #efece6;
+opacity: 1;
+background-image:  linear-gradient(135deg, var(--primary) 25%, transparent 25%), linear-gradient(225deg, var(--primary) 25%, transparent 25%), linear-gradient(45deg, var(--primary) 25%, transparent 25%), linear-gradient(315deg, var(--primary) 25%, var(--background) 25%);
+background-position:  13px 0, 13px 0, 0 0, 0 0;
+background-size: 26px 26px;
+background-repeat: repeat;
+margin-top: 20px;
 }
 
 .noren {
@@ -61,14 +77,23 @@
 .plates {
     display: grid;
     row-gap: 10px;
-  padding-left: 1rem;
+    padding-left: 1rem;
+    justify-items: end;
+    margin-bottom: 10px;
 } 
 
 .plates__bowl {
-    height: 70px; 
-    width: 140px; 
+    height: 60px; 
+    width: 120px; 
     border-radius: 0 0 150px 150px; 
     background: var(--primary);
+}
+
+.plates__bowl--hot {
+    background: var(--secondary);
+    column-gap: 1rem;
+    margin-left: 1rem;
+    grid-column: 2;
 }
 
 .restaurantShade {
@@ -89,4 +114,225 @@
   text-orientation: upright;
   text-align: center;
   letter-spacing: 1rem;
+}
+
+.hotDelivery {
+  display: grid;
+  grid-column: 4 / 6;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.tunaRolls {
+  display: grid;
+  grid-column: 1 / 3;
+  justify-items: end;
+  grid-template-columns: 1fr 1fr;
+}
+
+.tunaRolls__roll {
+  background: var(--background);
+  border: 5px var(--primary) solid;
+  width: 60px;
+  height: 45px;
+  border-radius: 17px;
+  box-shadow: 
+    -1px -1px 0 var(--primary),
+    -2px -2px 0 var(--primary),
+    -3px -3px 0 var(--primary),
+    -4px -4px 0 var(--primary),
+    -5px -5px 0 var(--primary),
+    -6px -6px 0 var(--primary),
+    -7px -7px 0 var(--primary),
+    -8px -8px 0 var(--primary),
+    -9px -9px 0 var(--primary),
+    -10px -10px 0 var(--primary),
+    -11px -11px 0 var(--primary),
+    -12px -12px 0 var(--primary),
+    -13px -13px 0 var(--primary),
+    -14px -14px 0 var(--primary),
+    -15px -15px 0 var(--primary),
+    -16px -16px 0 var(--primary),
+    -17px -17px 0 var(--primary),
+    -18px -18px 0 var(--primary),
+    -19px -19px 0 var(--primary),
+    -20px -20px 0 var(--primary);
+  position: relative;
+}
+
+.tunaRolls__filling {
+  background: var(--background);
+  border: 5px var(--secondary) solid;
+  border-radius: 8px;
+  margin-top: 5px;
+  margin-left: 6px;
+  width: 39px;
+  height: 25px;
+}
+
+.tunaRolls__filling::after {
+  background: var(--primary);
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  width: 26px;
+  height: 13px;
+}
+
+.fish__tuna-half:nth-child(2) {
+  transform: rotate(180deg)
+}
+
+.fish__tuna-half {
+  height: 60px;
+  overflow: hidden;
+}
+
+.fish__tuna-half span {
+  border: 5px var(--primary) solid;
+  border-radius: 150px 150px 0 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 10px,
+    var(--primary) 8px,
+    var(--primary) 17px
+  );
+  height: 125px;
+  width: 265px;
+  display: block;  
+}
+
+.fish__salmon span {  
+  border: 5px var(--secondary) solid;
+}
+
+.fish__salmon .fish__tuna-half:first-child span{
+  background: var(--secondary);
+}
+
+.fish__salmon .fish__tuna-half:nth-child(2) span{
+  background: radial-gradient(var(--primary) 30%, transparent 20%);
+  background-size: 20px 20px;
+}
+
+.fish__tuna, .fish__salmon {
+  position: relative;
+} 
+
+.fish__tuna::after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border-left: 40px transparent solid;
+  border-top: 40px transparent solid;
+  border-right: 40px var(--primary) solid;
+  border-bottom: 40px transparent solid;
+  position: absolute;
+  right: -15px;
+  top: 20px;
+}
+
+.fish__tuna::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border-left: 20px transparent solid;
+  border-top: 20px transparent solid;
+  border-right: 20px var(--primary) solid;
+  border-bottom: 20px transparent solid;
+  position: absolute;
+  left: 0px;
+  top: 40px;
+}
+
+.rolls {
+  grid-column: 5/6;
+}
+
+.fish {
+  grid-column: 1 / 3;
+  display: grid;
+  padding-top: 20px;
+  row-gap: 20px;
+}
+
+.fish__salmon {
+  transform: rotate(180deg);
+}
+
+.fish__salmon::after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border-left: 40px transparent solid;
+  border-top: 40px transparent solid;
+  border-right: 40px var(--secondary) solid;
+  border-bottom: 40px transparent solid;
+  position: absolute;
+  right: -15px;
+  top: 20px;
+}
+
+.fish__salmon::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border-left: 20px transparent solid;
+  border-top: 20px transparent solid;
+  border-right: 20px var(--secondary) solid;
+  border-bottom: 20px transparent solid;
+  position: absolute;
+  left: 0px;
+  top: 40px;
+}
+
+.makis {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column: 4 / 6;
+  justify-items: end;
+}
+
+.maki {
+  background: var(--primary);
+  border-radius: 45px;
+  width: 60px;
+  height: 85px;
+  text-align: center;
+}
+
+.maki--salmon {
+  background: var(--secondary);
+}
+
+.maki--salmon .maki__filling {
+  background: var(--primary);
+}
+
+.maki__filling {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+  background: var(--secondary);
+  border: 10px var(--background) solid;
+  margin-top: 10px;
+}
+
+.makisu {
+  background-size: 20px 20px;
+  background-color: #efece6;
+  border: 6px transparent solid;
+  background-image:  linear-gradient(
+    var(--primary) 6px,
+    transparent 2px), 
+    linear-gradient(
+      to right, 
+      var(--primary) 6px,
+      transparent 6px);
+  grid-column: 5;
+  opacity: 1;
+  grid-column: 3 / 6;
 }
